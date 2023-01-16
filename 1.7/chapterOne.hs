@@ -20,22 +20,20 @@
           = x
 -}
 {- 3. Define a function product that produces the product of a list of numbers. 
-
-    product' :: [Int] -> Int
-    product' [] = 1
-    product' (x:xs) = x * product' xs
 -}
+product' :: [Int] -> Int
+product' [] = 1
+product' (x:xs) = x * product' xs
 {- 4. How should the definition of the function qsort be modified so that it produces a reverse sorted version of a list? 
-
-    reverseQsort :: Ord a => [a] -> [a]
-    reverseQsort [] = []
-    reverseQsort (x:xs) = reverseQsort larger ++ [x] ++ reverseQsort smaller
-                            where 
-                                smaller = [a | a <- xs, a <= x]
-                                larger = [b | b <- xs, b > x]
 -}
+reverseQsort :: Ord a => [a] -> [a]
+reverseQsort [] = []
+reverseQsort (x:xs) = reverseQsort larger ++ [x] ++ reverseQsort smaller
+                        where 
+                            smaller = [a | a <- xs, a <= x]
+                            larger = [b | b <- xs, b > x]
 {- 5. What would be the effect of replacing <= by < in the original definition of qsort?
 
-    smaller will only consist of elements less than a, therefore any values which are the same as a will be lost in the result.
+    The list smaller will only consist of elements less than a, therefore any values which are the same as a will be lost in the result.
 -}
                             
